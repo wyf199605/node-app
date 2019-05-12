@@ -5,7 +5,7 @@ const webpackConfig = require('./webpack.common');
 
 const compiler = webpack(webpackMerge(webpackConfig, {
     // 模式：开发
-    mode: 'development',
+    mode: 'production',
     plugins: [
         new CleanWebpackPlugin()
     ]
