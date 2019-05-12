@@ -1,7 +1,8 @@
 import * as webpack from 'webpack';
 import * as webpackMerge from 'webpack-merge';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
-const webpackConfig = require('./webpack.common');
+import {webpackConfig} from "./webpack.common";
+
 
 const compiler = webpack(webpackMerge(webpackConfig, {
     // 模式：开发

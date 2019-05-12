@@ -12,7 +12,7 @@ fs.readdirSync('node_modules')
         nodeModules[mod] = 'commonjs ' + mod;
     });
 
-const webpackConfig: Configuration = {
+export const webpackConfig: Configuration = {
     // 入口文件
     entry: {
        main: path.resolve(__dirname, '../app/index.ts')
@@ -44,5 +44,3 @@ const webpackConfig: Configuration = {
     // 忽略node_modules目录下的文件
     externals: nodeModules
 };
-
-module.exports = webpackConfig;
