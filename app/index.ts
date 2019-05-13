@@ -22,11 +22,10 @@ app.on('error', (err) => {
     console.log(err);
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+    console.log('[demo] static-server is starting at port 3000')
+});
 
-console.log('the server is listen to 3000');
-
-console.log(process.env.NODE_ENV);
 
 
 
