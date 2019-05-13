@@ -20,7 +20,7 @@ export const webpackConfig: Configuration = {
     // 输出路径
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../build/server')
+        path: path.resolve(__dirname, '../build')
     },
     // 模式
     mode: 'none',
