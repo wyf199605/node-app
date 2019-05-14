@@ -1,5 +1,5 @@
 import * as KoaRouter from 'koa-router';
-import {loginRoute} from "./components/login";
+import {loginRouteHandler} from "./components/login";
 
 let router: KoaRouter = new KoaRouter();
 
@@ -8,7 +8,7 @@ router.get('/user/:name', async (ctx: KoaRouter.RouterContext) => {
     console.log(ctx.query);
 });
 
-router.get('/test', loginRoute);
+router.post('/test', loginRouteHandler);
 
 router.post('/login', async (ctx: KoaRouter.RouterContext) => {
     let data = ctx.request.body;

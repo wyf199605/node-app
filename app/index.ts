@@ -1,11 +1,15 @@
 import * as Koa from 'koa';
+import * as mongoose from 'mongoose';
 import * as koaBody from 'koa-body';
 import {Router} from "./router";
+import {mongooseInit} from "./database";
+
+mongooseInit();
 
 let app = new Koa();
 
 app.use(async (ctx, next) => {
-    try{
+    try {
         await next();
     } catch (e) {
         console.log(e);
@@ -23,7 +27,7 @@ app.on('error', (err) => {
 });
 
 app.listen(3000, () => {
-    console.log('[demo] static-server is starting at port 3000')
+    console.log('成功监听在 3000');
 });
 
 
