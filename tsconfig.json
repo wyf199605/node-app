@@ -14,7 +14,8 @@
   },
   "include": [
     "./app",
-    "./scripts"
+    "./scripts",
+    "./test"
   ],
   "exclude": [
     "./node_modules",

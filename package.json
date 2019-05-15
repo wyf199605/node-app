@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ts-node --project ./tsconfig.json ./test/index.ts",
     "start": "ts-node-dev --inspect --project ./tsconfig.json ./app/index.ts",
     "build": "ts-node --project ./tsconfig.json ./scripts/build.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.2",
     "@types/koa": "^2.0.48",
     "@types/koa-router": "^7.0.40",
     "@types/mongodb": "^3.1.26",
@@ -28,8 +29,10 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.7.0",
     "koa-body": "^4.1.0",
+    "koa-jwt": "^3.5.1",
     "koa-router": "^7.4.0",
     "mongodb": "^3.2.4",
     "mongoose": "^5.5.7"

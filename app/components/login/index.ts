@@ -1,13 +1,18 @@
 import {RouterContext} from "koa-router";
 import {User} from "../../database/User";
+import {AppResult} from "../result";
 
 export async function loginRouteHandler(ctx: RouterContext) {
+    ctx.type = 'json';
     try {
         let data = ctx.request.body;
 
         let res = await User.findOne({username: data.name});
         if (res) {
-            ctx.body = '用户名' + res.username + '已存在';
+            ctx.body = new AppResult({
+                code: 0,
+                msg: '用户名' + res.username + '已存在'
+            });
             return
         }
         let user = new User({
@@ -15,9 +20,15 @@ export async function loginRouteHandler(ctx: RouterContext) {
             password: data.password
         });
         await user.save();
-        ctx.body = 'ok';
+        ctx.body = new AppResult({
+            code: 200,
+            msg: '插入成功'
+        });
     } catch (e) {
         console.log(e);
-        ctx.body = '插入失败';
+        ctx.body = new AppResult({
+            code: 0,
+            msg: '插入失败'
+        });
     }
 }

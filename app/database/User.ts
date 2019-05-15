@@ -6,16 +6,16 @@ export interface IUser {
 }
 
 interface IUserConstruct extends IUser {
-
 }
 
 type UserDoc = IUserConstruct & Document;
 
 interface IUserModel extends Model<UserDoc> {
     new(para: Partial<IUser>): UserDoc;
+    validate: () => Promise<boolean>;
 }
 
-const userSchema = new Schema<IUser>({
+const userSchema = new Schema<IUserConstruct>({
     username: {
         type: String,
         unique: true,
@@ -27,6 +27,13 @@ const userSchema = new Schema<IUser>({
         type: String,
         required: true
     }
+});
+
+userSchema.static('validate', async function (this: IUserModel, {password, username}: IUser) {
+    let user = await this.findOne({
+        username
+    })
+
 });
 
 export const User: IUserModel = model<UserDoc, IUserModel>('user', userSchema);

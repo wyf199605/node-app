@@ -1,7 +1,9 @@
 import * as KoaRouter from 'koa-router';
 import {loginRouteHandler} from "./components/login";
 
-let router: KoaRouter = new KoaRouter();
+let router: KoaRouter = new KoaRouter({
+    prefix: '/admin'
+});
 
 router.get('/user/:name', async (ctx: KoaRouter.RouterContext) => {
     ctx.body = 'hello world';
