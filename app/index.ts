@@ -1,10 +1,8 @@
 import * as Koa from 'koa';
 import * as koaBody from 'koa-body';
 import {Router} from "./router";
-import {mongooseInit} from "./database";
+import "./models";
 import jwt = require("koa-jwt");
-
-mongooseInit();
 
 let app = new Koa();
 

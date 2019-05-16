@@ -1,5 +1,5 @@
 import {RouterContext} from "koa-router";
-import {User} from "../../database/User";
+import {User} from "../../models/User";
 import {AppResult} from "../result";
 
 export async function loginRouteHandler(ctx: RouterContext) {

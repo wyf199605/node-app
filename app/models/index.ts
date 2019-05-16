@@ -8,7 +8,7 @@ const config: ConnectionOptions = {
     useNewUrlParser: true
 };
 
-export const mongooseInit = () => {
+const mongooseInit = () => {
     mongoose.connect(uri, config);
     let db = mongoose.connection;
 
@@ -19,3 +19,5 @@ export const mongooseInit = () => {
         console.info('数据库连接成功');
     });
 };
+
+mongooseInit();
