@@ -1,10 +1,39 @@
 console.log('test');
 
-let str = '翁';
+let method: MethodDecorator = (target: typeof Test, key: string, descriptor: PropertyDescriptor) => {
+    console.log(target);
+};
 
-console.log(Buffer.from(str).byteOffset);
-console.log(Buffer.isEncoding('utf8'));
+class Test{
+    age: number;
+    name: string;
+    constructor(){
+        this.name = 'wyf'
+    }
 
-for(let i of Buffer.from(str)){
-    console.log(i);
+    @method
+    static hello(){
+
+    }
 }
+
+class a {
+    namea: string;
+
+}
+
+class b {
+    nameb: string;
+    changeb() {
+        this.nameb = 'changed';
+    }
+}
+
+class c implements a, b {
+    namea: string;
+    nameb: string;
+
+    changeb(): void { }
+}
+
+let e: obj
