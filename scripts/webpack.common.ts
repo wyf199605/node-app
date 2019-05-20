@@ -37,7 +37,11 @@ export const webpackConfig: Configuration = {
             // ts-loader
             {
                 test: /.ts$/,
-                loader: "awesome-typescript-loader"
+                loader: [
+                    {
+                        loader: "awesome-typescript-loader"
+                    }
+                ]
             }
         ]
     },

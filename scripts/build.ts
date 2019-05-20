@@ -9,7 +9,10 @@ const compiler = webpack(webpackMerge(webpackConfig, {
     mode: 'production',
     plugins: [
         new CleanWebpackPlugin()
-    ]
+    ],
+    optimization: {
+
+    }
 }), (err, status) => {
     if(err || status.hasErrors()){
         console.log(err);

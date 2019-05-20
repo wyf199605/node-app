@@ -6,7 +6,8 @@
   "scripts": {
     "test": "ts-node --project ./tsconfig.json ./test/index.ts",
     "start": "ts-node-dev --pretty --inspect --project ./tsconfig.json ./app/index.ts",
-    "build": "ts-node --project ./tsconfig.json ./scripts/build.ts"
+    "build": "ts-node --project ./tsconfig.json ./scripts/build.ts",
+    "server": "node ./build/main.js"
   },
   "author": "",
   "license": "ISC",
