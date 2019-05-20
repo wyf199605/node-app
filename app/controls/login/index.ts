@@ -1,8 +1,16 @@
-import {RouterContext} from "koa-router";
+import * as KoaRouter from "koa-router";
 import {User} from "../../models/User";
+import {getTemplate} from "../../utils/getTemplate";
 import {AppResult} from "../result";
 
-export async function loginRouteHandler(ctx: RouterContext) {
+const router = new KoaRouter();
+
+router.get('/login', async function (ctx: KoaRouter.RouterContext) {
+    ctx.type = 'html';
+    ctx.body = await getTemplate('login');
+});
+
+router.post('/login', async function (ctx: KoaRouter.RouterContext) {
     ctx.type = 'json';
     try {
         let data = ctx.request.body;
@@ -31,4 +39,8 @@ export async function loginRouteHandler(ctx: RouterContext) {
             msg: '插入失败'
         });
     }
-}
+});
+
+export const loginRouter = router;
+
+

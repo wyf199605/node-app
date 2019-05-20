@@ -1,24 +1,13 @@
 import * as KoaRouter from 'koa-router';
-import {loginRouteHandler} from "./components/login";
+import {loginRouter} from "./controls/login";
+import {uploadRouter} from "./controls/upload";
 
-let router: KoaRouter = new KoaRouter({
-    prefix: '/admin'
-});
+let router: KoaRouter = new KoaRouter();
 
-router.get('/user/:name', async (ctx: KoaRouter.RouterContext) => {
-    ctx.body = 'hello world';
-    console.log(ctx.query);
-});
+router.use('/admin', loginRouter.routes(), loginRouter.allowedMethods());
 
-router.post('/test', loginRouteHandler);
+router.use('/admin', uploadRouter.routes(), uploadRouter.allowedMethods());
 
-router.post('/login', async (ctx: KoaRouter.RouterContext) => {
-    let data = ctx.request.body;
-    console.log(data);
-    ctx.body = {
-        success: true
-    };
-});
 
 router.all('/', async (ctx) => {
     ctx.throw(404);
