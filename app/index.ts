@@ -4,8 +4,8 @@ import * as path from 'path';
 import {Router} from "./router";
 import "./models";
 import jwt = require("koa-jwt");
-import {getFileDirname} from "./utils/getFileDirname";
-import {checkDirExist} from "./utils/checkDirExist";
+import {getFileDirname} from "./utils/file";
+import {checkDirExist} from "./utils/file";
 import {File} from "formidable";
 
 let app = new Koa();

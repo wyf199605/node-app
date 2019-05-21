@@ -7,4 +7,6 @@ interface CustomFile{
     path: string | Buffer;
     name: string;
     type: string;
+    size: number;
+    lastModifiedDate: Date;
 }

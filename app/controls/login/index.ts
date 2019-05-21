@@ -1,6 +1,6 @@
 import * as KoaRouter from "koa-router";
 import {User} from "../../models/User";
-import {getTemplate} from "../../utils/getTemplate";
+import {getTemplate} from "../../utils/file";
 import {AppResult} from "../result";
 
 const router = new KoaRouter();
