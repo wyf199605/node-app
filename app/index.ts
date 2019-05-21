@@ -6,6 +6,7 @@ import "./models";
 import jwt = require("koa-jwt");
 import {getFileDirname} from "./utils/getFileDirname";
 import {checkDirExist} from "./utils/checkDirExist";
+import {File} from "formidable";
 
 let app = new Koa();
 
@@ -26,10 +27,12 @@ app.use(koaBody({
         uploadDir: fileDir,
         keepExtensions: true,
         maxFieldsSize: 2 * 1024 * 1024,
-        onFileBegin: (name, file) => {
-            let dir = path.resolve(fileDir, getFileDirname());
-            checkDirExist(dir);
-            file.path = `${dir}\\${file.name}`;
+        onFileBegin: (name, file: File) => {
+            console.log(file);
+            console.log(name);
+            // let dir = path.resolve(fileDir, getFileDirname());
+            // checkDirExist(dir);
+            // file.path = `${dir}\\${file.name}`;
         }
     },
     onError: (err) => {

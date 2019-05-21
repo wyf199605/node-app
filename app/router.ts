@@ -1,6 +1,6 @@
 import * as KoaRouter from 'koa-router';
 import {loginRouter} from "./controls/login";
-import {uploadRouter} from "./controls/upload";
+import {uploadRouter} from "./controls/file/upload";
 
 let router: KoaRouter = new KoaRouter({
     prefix: '/admin'
