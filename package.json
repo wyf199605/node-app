@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "ts-node --project ./tsconfig.json ./test/index.ts",
-    "start": "ts-node-dev --pretty --inspect --project ./tsconfig.json ./app/index.ts",
+    "start": "concurrently \"ts-node --project ./tsconfig.json ./scripts/start.ts\" \"nodemon --inspect ./build/main.js\"",
     "build": "ts-node --project ./tsconfig.json ./scripts/build.ts",
     "server": "node ./build/main.js"
   },
@@ -15,6 +15,7 @@
     "@types/jsonwebtoken": "^8.3.2",
     "@types/koa": "^2.0.48",
     "@types/koa-router": "^7.0.40",
+    "@types/koa-static": "^4.0.1",
     "@types/mongodb": "^3.1.26",
     "@types/mongoose": "^5.5.0",
     "@types/node": "^12.0.0",
@@ -22,8 +23,8 @@
     "@types/webpack-merge": "^4.1.5",
     "awesome-typescript-loader": "^5.2.1",
     "clean-webpack-plugin": "^2.0.2",
+    "nodemon": "^1.19.0",
     "ts-node": "^8.1.0",
-    "ts-node-dev": "^1.0.0-pre.39",
     "typescript": "^3.4.5",
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2",
@@ -35,6 +36,7 @@
     "koa-body": "^4.1.0",
     "koa-jwt": "^3.5.1",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "mongodb": "^3.2.4",
     "mongoose": "^5.5.7"
   }

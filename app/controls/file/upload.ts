@@ -1,5 +1,4 @@
 import * as KoaRouter from "koa-router";
-import {getTemplate} from "../../utils/file";
 import {GridFs} from "../../models/Files";
 import {File} from "formidable";
 import {md5} from "../../utils/md5";
@@ -40,11 +39,6 @@ function getFileUniName(file: CustomFile): string {
 
 
 const router = new KoaRouter();
-
-router.get('/upload', async function(ctx: KoaRouter.RouterContext){
-    ctx.type = 'html';
-    ctx.body = await getTemplate('upload');
-});
 
 router.post('/upload', async function(ctx: KoaRouter.RouterContext){
     let bucket = GridFs.getBucket();

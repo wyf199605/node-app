@@ -1,21 +1,20 @@
 import * as Koa from 'koa';
 import * as koaBody from 'koa-body';
+import * as koaStatic from 'koa-static';
 import * as path from 'path';
 import {Router} from "./router";
 import "./models";
-import jwt = require("koa-jwt");
-import {getFileDirname} from "./utils/file";
-import {checkDirExist} from "./utils/file";
 import {File} from "formidable";
 
 let app = new Koa();
+console.log(__filename);
+app.use(koaStatic(path.resolve(__dirname, '../static')));
 
 app.use(async (ctx, next) => {
     try {
         await next();
     } catch (e) {
         console.log(e);
-
     }
 });
 
@@ -42,6 +41,7 @@ app.use(koaBody({
     }
 }));
 
+
 app.use(Router.routes()).use(Router.allowedMethods());
 
 // 监听错误
@@ -52,6 +52,7 @@ app.on('error', (err) => {
 app.listen(3000, () => {
     console.log('成功监听在 3000');
 });
+
 
 
 

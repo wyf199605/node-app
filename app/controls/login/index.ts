@@ -1,14 +1,8 @@
 import * as KoaRouter from "koa-router";
 import {User} from "../../models/User";
-import {getTemplate} from "../../utils/file";
 import {AppResult} from "../result";
 
 const router = new KoaRouter();
-
-router.get('/login', async function (ctx: KoaRouter.RouterContext) {
-    ctx.type = 'html';
-    ctx.body = await getTemplate('login');
-});
 
 router.post('/login', async function (ctx: KoaRouter.RouterContext) {
     ctx.type = 'json';

@@ -22,6 +22,10 @@ export const webpackConfig: Configuration = {
         filename: '[name].js',
         path: path.resolve(__dirname, '../build')
     },
+    node: {
+        __dirname: true,
+        __filename: true
+    },
     // 模式
     mode: 'none',
     // 启用source-map
